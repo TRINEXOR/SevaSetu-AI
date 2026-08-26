@@ -1,51 +1,7 @@
 services:
   - type: web
-    name: sevasetu-ai
-    runtime: python
-    plan: free
-    branch: main
-    region: oregon
+    name: sevasetu-backend
+    env: python
     rootDir: .
-    pythonVersion: "3.11.11"
-    buildCommand: python -m pip install --upgrade pip && pip install --no-cache-dir -r backend/requirements.txt && cd frontend && npm install && npm run build
-    startCommand: cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
-    healthCheckPath: /health
-    envVars:
-      - key: APP_NAME
-        value: SevaSetu AI
-      - key: DEBUG
-        value: "false"
-      - key: LOG_LEVEL
-        value: INFO
-      - key: SECRET_KEY
-        generateValue: true
-      - key: ALGORITHM
-        value: HS256
-      - key: ACCESS_TOKEN_EXPIRE_MINUTES
-        value: "1440"
-      - key: AI_MODEL
-        value: gemini-2.0-flash
-      - key: GEMINI_API_KEY
-        sync: false
-      - key: DATABASE_URL
-        sync: false
-      - key: REDIS_URL
-        sync: false
-      - key: ALLOWED_ORIGINS
-        value: '["*"]'
-      - key: FRONTEND_URL
-        value: /
-      - key: CHROMA_PERSIST_DIR
-        value: /tmp/chroma_db
-      - key: CHROMA_COLLECTION
-        value: sevasetu_schemes
-      - key: EMBEDDING_MODEL
-        value: all-MiniLM-L6-v2
-      - key: TESSERACT_CMD
-        value: /usr/bin/tesseract
-      - key: TESSERACT_LANG
-        value: eng+hin+mar
-      - key: UPLOAD_DIR
-        value: /tmp/uploads
-      - key: MAX_FILE_SIZE_MB
-        value: "10"
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
