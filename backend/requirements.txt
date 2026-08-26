@@ -31,7 +31,7 @@ langdetect==1.0.9              # Language detection
 # ── OCR ───────────────────────────────────────────────────────
 pytesseract==0.3.10            # Tesseract Python binding
 Pillow==10.4.0                 # Image processing
-PyMuPDF==1.24.4                # PDF processing (fitz)
+PyMuPDF==1.24.11                # PDF processing (fitz)
 opencv-python-headless==4.9.0.80
 numpy==1.26.4
 
