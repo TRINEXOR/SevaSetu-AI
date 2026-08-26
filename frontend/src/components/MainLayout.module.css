@@ -1,0 +1,339 @@
+/* SevaSetu AI — MainLayout.module.css
+   Author: Rahul Jha | Made in India 🇮🇳 */
+
+/* ── Root Layout ─────────────────────────────────────────────────────────── */
+.layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* ── Sidebar ─────────────────────────────────────────────────────────────── */
+.sidebar {
+  width: 220px;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow: hidden;
+  transition: width 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
+}
+.sidebarOpen   { width: 220px; }
+.sidebarClosed { width: 0; border-right: none; }
+.sidebarInner {
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Brand */
+.sidebarBrand {
+  padding: 16px 18px 12px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+.brandText {
+  font-size: 1.1rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--saffron), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.brandAI { font-size: 1.1rem; font-weight: 300; color: var(--text-2); }
+.brandFlag { font-size: 1rem; margin-left: 2px; }
+
+/* Nav sections */
+.navSection { padding: 8px 0; border-bottom: 1px solid var(--border); }
+.navSection:last-of-type { border-bottom: none; }
+.navLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-3);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 6px 18px 4px;
+}
+
+/* Nav items */
+.navItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 18px;
+  color: var(--text-2);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  text-decoration: none;
+  transition: all 0.18s;
+  white-space: nowrap;
+  border-right: 3px solid transparent;
+}
+.navItem:hover { background: var(--surface-2); color: var(--text); }
+.navActive {
+  background: var(--saffron-muted) !important;
+  color: var(--saffron) !important;
+  border-right-color: var(--saffron) !important;
+  font-weight: 600;
+}
+.navIcon { font-size: 1rem; width: 20px; text-align: center; flex-shrink: 0; }
+.navLabel2 { flex: 1; }
+
+/* Footer */
+.sidebarFooter {
+  margin-top: auto;
+  padding: 14px 18px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.footerBrand { font-size: 0.72rem; color: var(--text-3); }
+.footerAuthor { font-size: 0.72rem; color: var(--text-3); margin-top: 2px; }
+.footerMadeIn { font-size: 0.72rem; color: var(--saffron); margin-top: 2px; }
+
+/* Mobile overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 99;
+  backdrop-filter: blur(2px);
+}
+
+/* ── Main area ───────────────────────────────────────────────────────────── */
+.mainArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-width: 0;
+}
+
+/* ── Top Nav ─────────────────────────────────────────────────────────────── */
+.topnav {
+  height: 56px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 10px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 50;
+}
+
+.menuBtn {
+  background: none;
+  border: none;
+  color: var(--text-2);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  transition: all 0.2s;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.menuBtn:hover { background: var(--surface-2); color: var(--text); }
+
+.navBrand {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.navBrandText {
+  font-size: 1rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--saffron), var(--gold), var(--green-in));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.navBrandFlag { font-size: 1rem; }
+.navSpacer { flex: 1; }
+
+.langSelect {
+  padding: 5px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text-2);
+  font-size: 0.78rem;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.langSelect:hover { border-color: var(--saffron); }
+
+.navActionBtn {
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-2);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  display: none;
+}
+.navActionBtn:hover, .navActionActive {
+  background: var(--saffron);
+  color: #fff;
+  border-color: var(--saffron);
+}
+
+/* Profile */
+.profileWrap { position: relative; flex-shrink: 0; }
+.avatarBtn {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--saffron), var(--gold));
+  border: none;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.2s;
+  letter-spacing: 0.5px;
+}
+.avatarBtn:hover { transform: scale(1.08); }
+
+.profileDropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 6px;
+  min-width: 190px;
+  z-index: 200;
+  box-shadow: var(--shadow-lg);
+  animation: dropdownFade 0.15s ease;
+}
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-6px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+.profileHeader {
+  padding: 10px 12px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.profileName { font-size: 0.875rem; font-weight: 700; color: var(--text); }
+.profileEmail { font-size: 0.72rem; color: var(--text-2); margin-bottom: 4px; word-break: break-all; }
+.dropdownDivider { height: 1px; background: var(--border); margin: 4px 0; }
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 12px;
+  border-radius: 7px;
+  font-size: 0.85rem;
+  color: var(--text-2);
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  transition: all 0.18s;
+}
+.dropdownItem:hover { background: var(--surface-2); color: var(--text); }
+.dropdownDanger:hover { background: rgba(239,68,68,0.1); color: var(--error) !important; }
+
+/* ── Page Content ────────────────────────────────────────────────────────── */
+.pageContent {
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+/* ── Toast ───────────────────────────────────────────────────────────────── */
+.toastContainer {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 340px;
+  pointer-events: none;
+}
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text);
+  font-size: 0.875rem;
+  box-shadow: var(--shadow-lg);
+  animation: toastSlide 0.3s ease;
+  pointer-events: all;
+}
+.toast.success { border-color: var(--green-in); }
+.toast.error   { border-color: var(--error); }
+.toast.info    { border-color: var(--accent); }
+.toast.warning { border-color: var(--warning); }
+@keyframes toastSlide {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.toastIcon { font-size: 1rem; flex-shrink: 0; }
+.toastMsg  { flex: 1; }
+.toastClose {
+  background: none; border: none; color: var(--text-3);
+  cursor: pointer; font-size: 0.85rem; padding: 2px; flex-shrink: 0;
+}
+.toastClose:hover { color: var(--text); }
+
+/* ── Responsive ──────────────────────────────────────────────────────────── */
+@media (min-width: 900px) {
+  .navActionBtn { display: flex; }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0; bottom: 0; left: 0;
+    width: 0;
+    z-index: 100;
+  }
+  .sidebarOpen {
+    width: 220px;
+    box-shadow: var(--shadow-lg);
+  }
+  .sidebarClosed { width: 0; }
+  .toastContainer { right: 12px; bottom: 12px; max-width: calc(100vw - 24px); }
+}
+
+@media (max-width: 480px) {
+  .topnav { padding: 0 10px; gap: 6px; }
+  .navBrandText { font-size: 0.9rem; }
+}

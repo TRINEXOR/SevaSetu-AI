@@ -1,0 +1,106 @@
+/* SevaSetu AI — HistoryPage.module.css */
+
+.historyPage {
+  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.pageHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.pageHeader h1 { color: var(--text); margin-bottom: 4px; }
+
+.historyList { display: flex; flex-direction: column; gap: 10px; }
+
+.histCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--transition);
+}
+.histCard:hover   { border-color: var(--border-light); }
+.histCardOpen     { border-color: var(--saffron); }
+
+.histHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background var(--transition);
+}
+.histHead:hover { background: var(--surface-2); }
+
+.histQ {
+  flex: 1;
+  font-size: 0.875rem;
+  color: var(--text);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.histMeta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.histTime {
+  font-size: 0.72rem;
+  color: var(--text-3);
+  white-space: nowrap;
+}
+.chevron { font-size: 0.7rem; color: var(--text-3); margin-left: 4px; }
+
+.histBody {
+  padding: 14px 16px 16px;
+  border-top: 1px solid var(--border);
+  background: var(--surface-2);
+  animation: expandDown 0.25s ease;
+}
+@keyframes expandDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.answerLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-2);
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.answerText {
+  font-size: 0.875rem;
+  color: var(--text);
+  line-height: 1.65;
+  white-space: pre-wrap;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+.histActions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+  .historyPage { padding: 14px; }
+  .histHead { flex-wrap: wrap; }
+  .histQ { min-width: 0; }
+  .histMeta { order: -1; width: 100%; }
+}

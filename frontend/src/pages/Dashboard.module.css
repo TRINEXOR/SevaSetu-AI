@@ -1,0 +1,179 @@
+/* SevaSetu AI — Dashboard.module.css
+   Author: Rahul Jha | Made in India 🇮🇳 */
+
+.dashboard {
+  padding: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  overflow-y: auto;
+  height: 100%;
+}
+
+/* Header */
+.dashHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.dashHeader h1 { color: var(--text); margin-bottom: 4px; }
+
+/* Stats grid */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* Section */
+.section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  margin-bottom: 16px;
+}
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.sectionHeader h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Quick actions */
+.quickGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.quickBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  transition: all var(--transition);
+  color: var(--text-2);
+}
+.quickBtn:hover {
+  border-color: var(--saffron);
+  background: var(--saffron-muted);
+  transform: translateY(-2px);
+  color: var(--saffron);
+}
+.quickIcon { font-size: 1.5rem; }
+.quickLabel { font-size: 0.75rem; font-weight: 500; text-align: center; }
+
+/* Two-column layout */
+.twoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+/* Query row */
+.queryRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.queryRow:last-child { border-bottom: none; }
+.queryText {
+  flex: 1;
+  font-size: 0.85rem;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.queryActions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.queryTime { font-size: 0.75rem; color: var(--text-3); margin-right: 4px; }
+
+/* Scheme row */
+.schemeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+}
+.schemeRow:last-child { border-bottom: none; }
+.schemeRowLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+.schemeName {
+  font-size: 0.83rem;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.schemeRowRight {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.schemeScore {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.scoreText { font-size: 0.75rem; color: var(--text-2); width: 32px; }
+
+/* Info banner */
+.infoBanner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(135deg, rgba(255,107,0,0.08), rgba(19,136,8,0.06));
+  border: 1px solid rgba(255,107,0,0.2);
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+  margin-top: 4px;
+}
+.bannerIcon { font-size: 1.5rem; flex-shrink: 0; }
+.infoBanner > div { flex: 1; font-size: 0.875rem; color: var(--text); }
+.bannerSub { color: var(--text-2); font-size: 0.8rem; }
+
+/* Responsive */
+@media (max-width: 900px) {
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+  .twoCol { grid-template-columns: 1fr; }
+  .quickGrid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 600px) {
+  .dashboard { padding: 14px; }
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+  .quickGrid { grid-template-columns: repeat(4, 1fr); }
+  .dashHeader { flex-direction: column; }
+  .dashHeader .btn { align-self: flex-start; }
+}
+@media (max-width: 400px) {
+  .quickGrid { grid-template-columns: repeat(3, 1fr); }
+  .schemeRowRight { flex-direction: column; align-items: flex-end; }
+}

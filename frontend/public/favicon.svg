@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="30" fill="#0a0f1e"/>
+  <!-- Saffron arc top -->
+  <path d="M8 32 A24 24 0 0 1 56 32" fill="#FF6B00"/>
+  <!-- Green arc bottom -->
+  <path d="M8 32 A24 24 0 0 0 56 32" fill="#138808"/>
+  <!-- White middle band -->
+  <rect x="8" y="29" width="48" height="6" fill="#ffffff"/>
+  <!-- Ashoka Chakra (navy circle) -->
+  <circle cx="32" cy="32" r="7" fill="none" stroke="#003580" stroke-width="2"/>
+  <!-- Chakra spokes (8 spokes) -->
+  <line x1="32" y1="25" x2="32" y2="39" stroke="#003580" stroke-width="1"/>
+  <line x1="25" y1="32" x2="39" y2="32" stroke="#003580" stroke-width="1"/>
+  <line x1="27" y1="27" x2="37" y2="37" stroke="#003580" stroke-width="1"/>
+  <line x1="37" y1="27" x2="27" y2="37" stroke="#003580" stroke-width="1"/>
+  <!-- Center dot -->
+  <circle cx="32" cy="32" r="1.5" fill="#003580"/>
+  <!-- Outer ring -->
+  <circle cx="32" cy="32" r="30" fill="none" stroke="#FF6B00" stroke-width="2"/>
+</svg>

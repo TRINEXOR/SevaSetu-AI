@@ -1,0 +1,162 @@
+/* SevaSetu AI — AdminPage.module.css */
+
+.adminPage {
+  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.pageHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.pageHeader h1 { color: var(--text); margin-bottom: 4px; }
+
+/* Stat row */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.adminStat {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: all var(--transition);
+}
+.adminStat:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.statIconBox {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.statBigNum { font-size: 1.4rem; font-weight: 800; color: var(--text); line-height: 1; }
+.statLabel  { font-size: 0.75rem; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 3px; }
+.statSub    { font-size: 0.72rem; color: var(--green-in); margin-top: 2px; }
+
+/* Charts grid */
+.chartsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.chartCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+}
+.chartTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+
+/* Bar chart */
+.barChart { display: flex; flex-direction: column; gap: 8px; }
+.barRow { display: flex; align-items: center; gap: 8px; }
+.barLabel {
+  font-size: 0.75rem;
+  color: var(--text-2);
+  width: 100px;
+  flex-shrink: 0;
+  text-transform: capitalize;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.barTrack {
+  flex: 1;
+  height: 8px;
+  background: var(--surface-2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.barFill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 1s ease;
+  min-width: 4px;
+}
+.barVal {
+  font-size: 0.72rem;
+  color: var(--text-2);
+  width: 48px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* Status rows */
+.statusRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.statusRow:last-child { border-bottom: none; }
+.statusLabel { font-size: 0.85rem; color: var(--text-2); }
+.statusBadge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+}
+
+/* Analytics tab */
+.analyticsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.analyticsCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+}
+.analyticsNum   { font-size: 1.6rem; font-weight: 800; color: var(--text); }
+.analyticsLabel { font-size: 0.72rem; color: var(--text-2); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; }
+.analyticsSub   { font-size: 0.72rem; color: var(--text-3); margin-top: 2px; }
+.analyticsTrend { font-size: 0.75rem; color: var(--green-in); font-weight: 600; margin-top: 4px; }
+
+.infoNote {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: var(--accent-muted);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  font-size: 0.85rem;
+  color: var(--text-2);
+  margin-top: 16px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .statsRow     { grid-template-columns: repeat(2, 1fr); }
+  .chartsGrid   { grid-template-columns: 1fr; }
+  .analyticsGrid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .adminPage    { padding: 14px; }
+  .statsRow     { grid-template-columns: 1fr; }
+  .analyticsGrid { grid-template-columns: 1fr; }
+  .pageHeader   { flex-direction: column; }
+  .barLabel     { width: 70px; }
+}
